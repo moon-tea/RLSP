@@ -11,8 +11,6 @@
 
         RL.Actions.Performable.add(this, 'open');
         RL.Actions.Performable.add(this, 'close');
-        RL.Actions.Performable.add(this, 'unlock');
-        RL.Actions.Performable.add(this, 'lock');
         RL.Actions.Performable.add(this, 'grab');
         RL.Actions.Performable.add(this, 'push');
         RL.Actions.Performable.add(this, 'melee_attack');
@@ -76,14 +74,6 @@
 
             if(action === 'open'){
                 return this.open();
-            }
-
-            if(action === 'unlock'){
-                return this.unlock();
-            }
-
-            if(action === 'lock'){
-                return this.lock();
             }
 
             if(action === 'melee_attack'){
@@ -193,18 +183,6 @@
         open: function(){
             this.pendingActionName = 'open';
             return this.actionAdjacentTargetSelect('open');
-        },
-
-        // action
-        unlock: function(){
-            this.pendingActionName = 'unlock';
-            return this.actionAdjacentTargetSelect('unlock');
-        },
-
-        // action
-        lock: function(){
-            this.pendingActionName = 'lock';
-            return this.actionAdjacentTargetSelect('lock');
         },
 
         // action

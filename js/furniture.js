@@ -228,20 +228,6 @@
                 RL.Actions.Resolvable.add(this, 'push');
             }
         },
-        toilet: {
-            name: 'Toilet',
-            hp: 3,
-            char: 'º',
-            color: RL.Util.COLORS.gray,
-            consoleColor: RL.Util.COLORS.gray,
-            charStrokeColor: '#000',
-            charStrokeWidth: 2,
-            passable: true,
-            init: function(){
-                RL.Actions.Resolvable.add(this, 'melee_attack');
-                RL.Actions.Resolvable.add(this, 'ranged_attack');
-            }
-        },
         shelves: {
             name: 'Shelves',
             hp: 5,
@@ -291,49 +277,19 @@
             name: 'Door',
             hp: 5,
             char: '+',
-            closedChar: '+',
-            openChar: "'",
             color: 'yellow',
             consoleColor: 'yellow',
             charStrokeColor: '#000',
             charStrokeWidth: 2,
-            locked: false,
             passable: false,
             blocksLos: true,
-            whenClosedBlockLos: true,
             mixins: ['door'],
             init: function(){
                 RL.Actions.Resolvable.add(this, 'open');
                 RL.Actions.Resolvable.add(this, 'close');
-                RL.Actions.Resolvable.add(this, 'lock');
-                RL.Actions.Resolvable.add(this, 'unlock');
 
                 RL.Actions.Resolvable.add(this, 'melee_attack');
                 // RL.Actions.Resolvable.add(this, 'ranged_attack');
-            }
-        },
-        barred_door: {
-            name: 'Barred Door',
-            hp: 10,
-            char: '║',
-            closedChar: '║',
-            openChar: "'",
-            color: RL.Util.COLORS.gray,
-            consoleColor: 'yellow',
-            charStrokeColor: '#000',
-            charStrokeWidth: 2,
-            locked: true,
-            passable: false,
-            blocksLos: false,
-            whenClosedBlockLos: false,
-            mixins: ['door'],
-            init: function(){
-                RL.Actions.Resolvable.add(this, 'open');
-                RL.Actions.Resolvable.add(this, 'close');
-                RL.Actions.Resolvable.add(this, 'lock');
-                RL.Actions.Resolvable.add(this, 'unlock');
-
-                RL.Actions.Resolvable.add(this, 'melee_attack');
             }
         },
         chest: {

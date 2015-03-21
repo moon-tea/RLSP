@@ -73,11 +73,6 @@
             item = this.wrap(item);
             this.game.console.log(entity + ' see a ' + item + ' but have no use for it right now.');
         },
-        logCanNotOpenItem: function(entity, furniture){
-            entity = this.wrap(entity);
-            furniture = this.wrap(furniture);
-            this.game.console.log(entity + ' try to open a ' + furniture + ' but it is locked.');
-        },
         logCanNotPickupWeapon: function(entity, currentWeapon, item){
             var currentItem = this.wrap(currentWeapon);
             entity = this.wrap(entity);
@@ -106,21 +101,12 @@
             var entityName = this.wrap(entity);
             var furnitureName = this.wrap(furniture);
             this.log(entityName + ' close the ' + furnitureName);
-        },        
+        },
+
         logOpen: function(entity, furniture){
             var entityName = this.wrap(entity);
             var furnitureName = this.wrap(furniture);
             this.log(entityName + ' open the ' + furnitureName);
-        },
-        logLock: function(entity, furniture){
-            var entityName = this.wrap(entity);
-            var furnitureName = this.wrap(furniture);
-            this.log(entityName + ' lock the ' + furnitureName);
-        },
-        logUnlock: function(entity, furniture){
-            var entityName = this.wrap(entity);
-            var furnitureName = this.wrap(furniture);
-            this.log(entityName + ' unlock the ' + furnitureName);
         },
 
         logNothingTo: function(verb){
