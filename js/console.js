@@ -129,7 +129,11 @@
             var directions = this.wrapStr('(ENTER to select, movement keys for prev/next target)', RL.Util.COLORS.blue_alt);
             this.log('Multiple ' + verb + ' targets found ' + directions);
         },
-
+        logNextMessage: function(source, target){
+            var entityName = this.wrap(target);
+            var chat = target.chat[target.chat['jump']];
+            this.log(entityName + ': ' + this.wrapStr(chat.text, chat.color));
+        },
         wrap: function(obj){
             var data = obj.getConsoleName();
             var str = data.name;

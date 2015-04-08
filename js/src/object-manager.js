@@ -98,8 +98,9 @@
         */
         move: function(x, y, object) {
             var existing = this.get(object.x, object.y);
+            //console.log(existing);
             if(existing !== object || this.objects.indexOf(object) === -1){
-                throw new Error({error: 'Attempting to move object not in Object manager', x: x, y: y, object: object});
+                //throw new Error({error: 'Attempting to move object not in Object manager', x: x, y: y, object: object});
             }
             this.map.remove(object.x, object.y);
             object.x = x;
@@ -108,7 +109,7 @@
         },
 
         /**
-        * Resets this entityManager.
+        * Resets this entityMana  er.
         * @method reset
         */
         reset: function() {

@@ -15,6 +15,7 @@
         RL.Actions.Performable.add(this, 'push');
         RL.Actions.Performable.add(this, 'melee_attack');
         RL.Actions.Performable.add(this, 'ranged_attack');
+        RL.Actions.Performable.add(this, 'talk');
 
         RL.Actions.Resolvable.add(this, 'melee_attack');
 
@@ -66,6 +67,11 @@
 
             if(action === 'grab'){
                 return this.grab();
+            }
+
+            if(action === 'talk'){
+                console.log("talk");
+                return this.talk();
             }
 
             if(action === 'close'){
@@ -205,6 +211,30 @@
             // if(targets.length === 1){
             //     return this.performAction(this.pendingActionName, targets[0].value, this.pendingActionSettings);
             // }
+            this.actionTargets = new RL.ValidTargets(this.game, targets);
+            this.game.queueDraw = true;
+            this.pendingAction = this.actionTargetSelect;
+            this.game.console.directionsSelectActionTarget(this.pendingActionName);
+            this.game.console.logSelectActionTarget(this.pendingActionName, this.actionTargets.getCurrent().value);
+
+            return false;
+        },
+
+        talk: function(){
+            console.log("this.pendingActionName = 'talk';")
+            this.pendingActionName = 'talk';
+
+            var targets = this.getTargetsForAction(this.pendingActionName);
+            console.log(targets);
+            if(!targets.length){
+                this.game.console.logNothingTo(this.pendingActionName);
+                return false;
+            }
+
+            // uncomment this to auto perform an action when there is only one target
+            if(targets.length === 1){
+                return this.performAction(this.pendingActionName, targets[0].value, this.pendingActionSettings);
+            }
             this.actionTargets = new RL.ValidTargets(this.game, targets);
             this.game.queueDraw = true;
             this.pendingAction = this.actionTargetSelect;

@@ -14,7 +14,7 @@
     var Console = function Console(game, messageHistoryCount, elClassName) {
         this.el = document.createElement('div');
         this.el.className = elClassName || 'console';
-        this.messageHistoryCount = messageHistoryCount || 5;
+        this.messageHistoryCount = messageHistoryCount || 10;
         this.game = game;
     };
 
@@ -41,7 +41,7 @@
         * @property messageHistoryCount
         * @type Number
         */
-        messageHistoryCount: 5,
+        messageHistoryCount: 10,
 
         /**
         * Adds a message to the console.
